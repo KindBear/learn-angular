@@ -1,0 +1,26 @@
+<form [formGroup]="signUpForm" (submit)="onSubmit($event)" class="sign-up-form">
+
+  <mat-form-field controlErrorContainer>
+    <input matInput placeholder="First Name" type="text" formControlName="first_name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last Name" type="text" formControlName="last_name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" type="email" formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatepicker" placeholder="Date of Birth" formControlName="dob">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" formControlName="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Sign up</button>
+</form>

@@ -1,0 +1,14 @@
+.nav-link {
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  margin: 8px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.toolbar-whitespece {
+  flex: 1 1 auto;
+}
