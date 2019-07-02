@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,12 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup
+  loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -23,12 +25,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    this.auth.signIn(this.loginForm.value)
-      .subscribe((data: any) => {
-        console.log(data);
-      });
+  onSubmit() {
+    console.log(11111111)
+    this.auth.signIn(this.loginForm.value).toPromise();
   }
 
 }

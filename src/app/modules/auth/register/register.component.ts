@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -26,12 +26,13 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    this.auth.signUp(this.signUpForm.value)
-      .subscribe((data: any) => {
-        console.log(data);
-      });
+  onSubmit() {
+    if (this.signUpForm.valid) {
+      this.auth.signUp(this.signUpForm.value)
+        .subscribe((data: any) => {
+          console.log(data);
+        });
+    }
   }
 }
 

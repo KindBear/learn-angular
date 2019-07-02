@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  My App
+
+  <span class="toolbar-whitespece"></span>
+
+  <a *ngFor="let link of links" class="nav-link" routerLink={{link.path}}>{{link.label}}</a>
+  <a *ngIf="isLoggedIn" class="nav-link" (click)="logout()">Logout</a>
+</mat-toolbar>

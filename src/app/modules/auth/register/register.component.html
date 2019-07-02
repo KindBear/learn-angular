@@ -1,7 +1,8 @@
-<form [formGroup]="signUpForm" (submit)="onSubmit($event)" class="sign-up-form">
+<form [formGroup]="signUpForm" (submit)="onSubmit()" class="sign-up-form">
 
-  <mat-form-field controlErrorContainer>
+  <mat-form-field>
     <input matInput placeholder="First Name" type="text" formControlName="first_name" required>
+    <mat-error>Required</mat-error>
   </mat-form-field>
 
   <mat-form-field>

@@ -1,0 +1,5 @@
+<mat-card>
+  <p *ngIf="!isActivated && !isError">Activation...</p>
+  <p *ngIf="isError">Activation failed. Maybe your activation token is dead... :(</p>
+  <p *ngIf="isActivated">Activation success. You will be redirected on profile page</p>
+</mat-card>

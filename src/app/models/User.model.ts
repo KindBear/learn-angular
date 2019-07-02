@@ -1,0 +1,34 @@
+export interface User {
+  id: number;
+  state_id: number;
+  sport_id: number;
+  facility_id: number;
+  club_id: number;
+  primary_coach_id: number;
+  user_name: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  type: string;
+  phone: string;
+  gender: string;
+  dob: string;
+  position: string;
+  batting_hand: string;
+  pitching_hand: string;
+  player_number: string;
+  height: string;
+  weight: string;
+  profile_pic: string;
+  is_public: boolean;
+  is_under_18: boolean,
+  activation_token: string;
+  activated_at: string;
+  is_approved: boolean;
+  coppa_signoff_at: string;
+  liability_signoff_at: string;
+  privacy_signoff_at: string;
+  has_valid_subscription: boolean;
+  created_at: string;
+  updated_at: string;
+}
