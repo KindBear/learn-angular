@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -19,6 +19,16 @@ import { UserProfileComponent } from './modules/client/user-profile/user-profile
 import { UserService } from './services/user.service';
 import { ToolbarComponent } from './modules/app-toolbar/app-toolbar.component';
 import { ActivationComponent } from './modules/auth/activation/activation.component';
+
+function init(userService: UserService, tokenService: TokenService): () => Promise<any> {
+  if (tokenService.getToken()) { return () => userService.initialize(); }
+
+  return (): Promise<any> => {
+    return new Promise((res) => {
+      res();
+    });
+  };
+}
 
 @NgModule({
   declarations: [
@@ -46,7 +56,13 @@ import { ActivationComponent } from './modules/auth/activation/activation.compon
       provide: HTTP_INTERCEPTORS,
       useClass: ParamInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [UserService, TokenService],
+      useFactory: init
+    },
   ],
   bootstrap: [AppComponent]
 })

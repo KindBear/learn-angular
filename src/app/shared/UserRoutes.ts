@@ -4,5 +4,5 @@ export const guestLinks = [
 ];
 
 export const userLinks = [
-  { path: '/user', label: 'Profile' },
+  { path: '/', label: 'Profile' },
 ];

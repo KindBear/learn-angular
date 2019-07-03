@@ -22,10 +22,8 @@ export class ActivationComponent implements OnInit {
         .subscribe(
           () => {
             this.isActivated = true;
-            console.log('is activated')
           },
           (err) => {
-            console.log('Error', err)
             if (err) {
               this.isError = true;
             }

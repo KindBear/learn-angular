@@ -12,7 +12,11 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService
-  ) { }
+  ) {
+    if (userService.user) {
+      this.user = userService.user;
+    }
+  }
 
   ngOnInit() {
     if (!this.user) {
