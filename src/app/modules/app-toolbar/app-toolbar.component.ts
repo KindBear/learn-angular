@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { guestLinks, userLinks } from '../../shared/UserRoutes';
+import { guestLinks, userLinks, adminLinks } from '../../shared/UserRoutes';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { UserType } from 'src/app/models/user-type';
 
 @Component({
   selector: 'app-toolbar',
@@ -14,6 +16,7 @@ export class ToolbarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -21,7 +24,12 @@ export class ToolbarComponent implements OnInit {
     this.authService.isLoggedIn.subscribe((value) => {
       this.isLoggedIn = value;
       if (value) {
-        this.links = userLinks;
+        const userType = this.userService.user.type;
+        if (userType === UserType.ADMIN) {
+          this.links = adminLinks;
+        } else {
+          this.links = userLinks;
+        }
       } else {
         this.links = guestLinks;
       }

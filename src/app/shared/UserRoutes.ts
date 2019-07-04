@@ -6,3 +6,8 @@ export const guestLinks = [
 export const userLinks = [
   { path: '/', label: 'Profile' },
 ];
+
+export const adminLinks = [
+  { path: '/', label: 'Profile' },
+  { path: '/admin', label: 'Admin Panel' },
+];
