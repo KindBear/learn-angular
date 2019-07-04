@@ -55,7 +55,7 @@ export class AuthService {
       if (this.redirectUrl) {
         this.router.navigate([this.redirectUrl]);
       } else {
-        this.router.navigate(['/user']);
+        this.router.navigate(['/']);
       }
     }
   }
