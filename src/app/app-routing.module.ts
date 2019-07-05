@@ -13,7 +13,13 @@ const routes: Routes = [
   { path: 'sign-up', component: RegisterComponent },
   { path: 'activation/:token', component: ActivationComponent },
   { path: '', component: UserProfileComponent, canActivate: [AuthGuard], resolve: { user: UserResolverService } },
-  { path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule', canLoad: [AuthGuard], data: { userType: UserType.ADMIN } }
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module')
+      .then(mod => mod.AdminModule),
+    canLoad: [AuthGuard],
+    data: { userType: UserType.ADMIN }
+  }
 ];
 
 @NgModule({
