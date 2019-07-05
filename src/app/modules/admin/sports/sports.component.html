@@ -1,5 +1,16 @@
-<ul>
-  <li *ngFor="let sport of sports">
-    {{sport.name}}
-  </li>
-</ul>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let sport"> {{sport.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let sport"> {{sport.name}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSize]="20" [length]="totalItems" showFirstLastButtons></mat-paginator>

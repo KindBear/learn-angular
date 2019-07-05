@@ -6,7 +6,9 @@ import {
   MatInputModule,
   MatNativeDateModule,
   MatToolbarModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTableModule,
+  MatPaginatorModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -20,7 +22,9 @@ const modules = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatTabsModule,
-  LayoutModule
+  MatTableModule,
+  MatPaginatorModule,
+  LayoutModule,
 ];
 
 @NgModule({
